@@ -23,3 +23,9 @@ def fib_iter(n: int) -> int:
         c = a + b
 
     return c
+
+
+def fib_decider(n: int, to_call: str = 'fib') -> int:
+    if to_call == 'fib':
+        return fib(n)
+    return fib_iter(n)
