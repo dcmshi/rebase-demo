@@ -4,6 +4,7 @@ def fib(n: int) -> int:
     :param n: index in the sequence to get
     :return: nth fibonacci number in the sequence
     """
+    print(n)
     if n == 0 or n == 1:
         return n
     else:
@@ -18,6 +19,7 @@ def fib_iter(n: int) -> int:
     """
     a, b, c = 0, 1, 1
     for i in range(0, n):
+        print(a, b, c)
         a = b
         b = c
         c = a + b
