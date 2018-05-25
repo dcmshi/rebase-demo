@@ -47,7 +47,7 @@ Assuming `DEV2` is depending on `DEV1`'s code
 1. `DEV1` writes and pushes some code that `DEV2` is dependent on
 1. `DEV2` checkouts `FEATURE1` and then immediate invokes `git checkout -B FEATURE1_1`
 1. `DEV1` and `DEV2` will continue to do work in isolation
-1. Whenever `DEV1` pushes some commits and when `DEV2` is ready (you can't rebase if you have uncommitted code), do a `git pull --rebase origin/FEATURE1` to get the latest changes, then do a force-push onto `FEATURE1_1` to sync up with its remote branch
+1. Whenever `DEV1` pushes some commits and when `DEV2` is ready (you can't rebase if you have uncommitted code), do a `git pull --rebase origin FEATURE1` to get the latest changes, then do a force-push onto `FEATURE1_1` to sync up with its remote branch
 1. `DEV1` will continue work and will eventually need to squash commits
 1. `DEV1` should inform `DEV2` that commits were squashed, `DEV2` will then rebase off of `FEATURE1` to get the squashed history
 2. `DEV1` will then merge the feature branch into `master`
