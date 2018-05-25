@@ -1,0 +1,55 @@
+# This is Git's per-user configuration file.
+[user]
+	name = David Shi
+	email = david.shi@adeptmind.ai
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[alias]
+	b = branch -vv
+	ci = commit
+	co = checkout
+	cp = cherry-pick
+	d = !git wdiff
+    ds = !git wdiff --staged
+    dump = cat-file -p
+    f = fetch --prune --all
+  fuck = !git add . && git commit --amend --no-edit && git push origin +`git rev-parse --abbrev-ref HEAD`
+  g = !open 'https://gist.github.com/'
+  l = log -n 10 --pretty=oneline --reverse
+    lg = log --stat --decorate HEAD~10..HEAD
+    log = log --reverse
+    mff = merge --ff-only
+    p = pull --rebase
+  pb = pull --rebase origin
+    pff = pull --ff-only
+  pr = !open `git config --get remote.origin.url | gsed -e 's,''git@\\(github.com\\|github.ibm.com\\):,''http://\\1/,' | gsed -e 's,''\\.git$,''\\/compare\\/master...,'`$(git branch | grep \\* | cut -d ' ' -f2)?expand=1
+  prs = !open `git config --get remote.origin.url | gsed -e 's,''git@\\(github.com\\|github.ibm.com\\):,''http://\\1/,' | gsed -e 's,''\\.git$,''\\/pulls,'`
+    rbc = rebase --continue
+    rba = rebase --abort
+    rbi = rebase -i origin/master
+    remotes = remote -v show
+    rp = remote prune origin
+    s = status --short
+    st = status
+    tg = show-ref --tags
+  t = !git tree
+    tree = log --graph --oneline --decorate --simplify-by-decoration --branches
+    type = cat-file -t
+    wdiff = diff --word-diff=color
+[core]
+	excludesfile = ~/.gitignore
+	# os x/brew hack
+	editor = /usr/bin/vim
+	whitespace = fix
+[help]
+	autocorrect = -1
+[push]
+	default = current
+[color]
+	interactive = auto
+	ui = auto
+[rerere]
+	enabled = true
